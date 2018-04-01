@@ -5,15 +5,14 @@ start
 :考试安排表;
 |教师|
 :出卷;
-fork
+split
    :A、B试卷;
-   detach
- fork again
+split again
    :打印审批表;
- end fork
 |系主任|
 :审批签字;
 :打印审批表;
+ end split
 |教务处|
 :打印试卷;
 :试卷;
@@ -22,7 +21,6 @@ fork
 :答卷;
 |教师|
 :阅卷出成绩;
-
 fork
    :成绩单;
    |教务处|
