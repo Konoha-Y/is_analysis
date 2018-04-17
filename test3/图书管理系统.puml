@@ -1,0 +1,68 @@
+@startuml
+class Reserve_预借信息{
+    +String  ISBN
+    +String  LenderId
+    +int  number
+    +Data  data
+    +add()
+    +delete()
+    +update()
+    +get()
+}
+class Lend_借阅信息{
+    +String  ISBN
+    +String  LenderId
+    +Data  lenddata
+    +Data  returndata
+    +boolean  isOvertime
+    +add()
+    +delete()
+    +get()
+}
+class BookInfo_图书信息{
+    +String  ISBN
+    +BookDescribeInfo bookDes
+    +int  status
+    +add()
+    +select()
+    +delete()
+    +update()
+    +setStatus()
+}
+class BookDescribe_图书描述{
+    +String ISBN
+    +String bookName
+    +String type
+    +List<String> catalog
+    +String describe
+    +double price
+    +String author
+}
+class Lender_借阅者{
+    +String  ID
+    +String  name
+    +String  sex
+    +String  age
+    +int  maxBorrowNum
+    +int  maxBorrowDays
+    +int  borrowNum
+    +select()
+    +borrow()
+    +yujie()
+    +returnBook()
+    +findBook()
+}
+class admin_管理员{
+    String adminID
+    int accessLevel
+    adminMethod()
+}
+BookDescribe_图书描述 --* BookInfo_图书信息:Composition
+Lender_借阅者 --* "m"BookInfo_图书信息:select
+Lender_借阅者 --* "m"Reserve_预借信息:add、get
+Lender_借阅者 --* "m"Lend_借阅信息
+admin_管理员 ..> BookInfo_图书信息:可进行所有操作
+admin_管理员 ..> Reserve_预借信息:可进行所有操作
+admin_管理员 ..> Lend_借阅信息:可进行所有操作
+
+@enduml
