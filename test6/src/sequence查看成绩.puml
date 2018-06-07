@@ -1,0 +1,14 @@
+@startuml
+actor teacher
+actor student
+        ==老师查成绩==
+    teacher -> students: 输入学号
+    students -> courses:查看课程
+	courses -> grades
+	grades -> tests
+	tests --> teacher:每个学生的信息、成绩及评语
+	    ==学生查成绩==
+	student -> grades:查看成绩和评语
+	grades -> tests
+	tests --> student:每个实验的的信息、成绩及评语
+@enduml

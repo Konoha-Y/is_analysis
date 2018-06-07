@@ -1,0 +1,14 @@
+@startuml
+actor users
+actor teachers
+actor students
+users ->teachers:登录到老师用户
+teachers ->courses:访问课程库
+courses ->course:选课开课
+course -->courses:返回老师开课课程表
+users ->students:登录到学生用户
+students ->courses:访问课程库
+opt 老师选课完毕
+courses ->course:根据老师开课课程表，选择课程
+end
+@enduml

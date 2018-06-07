@@ -1,0 +1,7 @@
+@startuml
+
+actor teachers
+	==评定成绩==
+	tests --> teachers:实验评定细则
+    teachers -> grades:录入并提交每个实验的成绩
+@enduml

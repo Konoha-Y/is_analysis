@@ -1,0 +1,11 @@
+@startuml
+actor users
+actor teachers
+users -> teachers: 登陆至管理账号
+teachers -> courses: 访问数据库
+courses -> course:增加/删除课程
+course -> course:更新课程
+teachers -> courses: 访问数据库
+courses -> course:查看课程s
+course -> teachers:返回可选课程
+@enduml

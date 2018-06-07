@@ -1,0 +1,17 @@
+@startuml
+actor users
+actor student
+actor teacher
+alt 如果users是游客
+    users -> students: 查看所有学生列表(部分信息)
+else 如果users是老师
+    users->teacher:登陆至老师
+    teacher-> students: 查看所有学生列表（所有信息）
+	students -> grades
+	grades -> tests
+	tests --> users:每个学生的信息、及每个实验的成绩
+else 如果users是student
+    users->student:登陆至学生
+    students --> users:每个学生的信息
+end
+@enduml
